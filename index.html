@@ -25,7 +25,7 @@
   .header .tagline { color:var(--text-dim); font-size:1.05rem; margin-top:0.5rem; font-style:italic; }
 
   /* ROCKET RACE */
-  .rocket-race { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:1.5rem 1.5rem 1.5rem 1.5rem; margin-bottom:2rem; position:relative; overflow:hidden; animation:fadeInUp 0.8s ease-out 0.15s both; }
+  .rocket-race { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:1.5rem 1.5rem 1.5rem 1.5rem; margin-bottom:2rem; position:relative; overflow:hidden; animation:fadeInUp 0.8s ease-out 0.15s both; max-width:100%; }
   .rocket-race::before { content:''; position:absolute; top:0; right:0; width:80px; height:100%; background:linear-gradient(to left,rgba(245,158,11,0.1),transparent); border-radius:0 16px 16px 0; pointer-events:none; }
   .race-title { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-bottom:1rem; }
   .moon-label { position:absolute; right:1.2rem; top:50%; transform:translateY(-50%); font-size:2.2rem; opacity:0.6; }
@@ -99,7 +99,46 @@
   .bench-pct{font-family:'JetBrains Mono',monospace;font-size:0.8rem;font-weight:700}
   .bench-pct.up{color:var(--green)}.bench-pct.down{color:var(--red)}.bench-pct.loading{color:var(--text-muted)}
 
-  @media(max-width:768px){.header h1{font-size:2.25rem}.cards-grid{grid-template-columns:1fr}.sidebet-cards{grid-template-columns:1fr}.container{padding:1.5rem 1rem}.bench-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:768px){
+    .container{padding:1.5rem 1rem}
+    .header h1{font-size:2.25rem}
+    .header .subtitle{font-size:0.72rem;letter-spacing:0.08em}
+    .header .tagline{font-size:0.9rem}
+    .cards-grid{grid-template-columns:1fr}
+    .sidebet-cards{grid-template-columns:1fr}
+    .sidebet-section{padding:1.25rem}
+    .bench-grid{grid-template-columns:repeat(2,1fr)}
+    .status-bar{flex-direction:column;gap:0.5rem;text-align:center;padding:0.9rem 1rem}
+    .leader-banner{padding:1.25rem 1rem}
+    .sidebet-leader{padding:1.25rem 1rem}
+    .card{padding:1.25rem}
+    .price-current{font-size:1.6rem}
+  }
+  @media(max-width:480px){
+    html,body{overflow-x:hidden;max-width:100%}
+    .container{padding:1.25rem 0.9rem}
+    .header h1{font-size:1.75rem}
+    .header .subtitle{font-size:0.62rem;letter-spacing:0.04em}
+    .header .tagline{font-size:0.82rem}
+    .card{padding:1.1rem}
+    .price-current{font-size:1.35rem}
+    .change-badge{font-size:0.85rem;padding:0.3rem 0.55rem}
+    .change-dollar{font-size:0.78rem}
+    .threshold{font-size:0.7rem}
+    .player-info .player-name{font-size:1.25rem}
+    .player-logo{width:44px;height:44px}
+    .rocket-name{width:58px;font-size:0.72rem}
+    .rocket-track{margin-right:3.5rem}
+    .rocket-pct{font-size:0.68rem;right:-58px}
+    .rocket-emoji{right:-18px;font-size:1.2rem}
+    .sidebet-race{padding:1rem}
+    .sidebet-title{font-size:1.3rem}
+    .bench-grid{grid-template-columns:repeat(2,1fr)}
+    .bench-name{font-size:0.68rem}
+    .bench-pct{font-size:0.72rem}
+    .leader-banner .leader-name,.sidebet-leader .leader-name{font-size:1.5rem}
+    .disclaimer{padding:1.5rem 0.9rem}
+  }
 
   /* SIDE BET */
   .sidebet-section{background:var(--bg-card);border:1px solid #3b2a6e;border-radius:16px;padding:1.75rem;margin-bottom:2rem;position:relative;overflow:hidden;animation:fadeInUp 0.8s ease-out 0.75s both}
