@@ -46,6 +46,7 @@
   .leader-banner .crown{font-size:2rem} .leader-banner .leader-label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-top:0.25rem}
   .leader-banner .leader-name{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;margin-top:0.25rem} .leader-banner .leader-gain{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;margin-top:0.25rem}
   .leader-banner .leader-quip{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:0.5rem;font-style:italic}
+  .leader-lead{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--gold-light);margin-top:0.25rem}
 
   /* CARDS */
   .cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:2rem; }
@@ -186,6 +187,7 @@
     <div class="leader-label">Currently Closest to a Free Steak</div>
     <div class="leader-name" id="leaderName">Loading...</div>
     <div class="leader-gain" id="leaderGain"></div>
+    <div class="leader-lead" id="leaderLead"></div>
     <div class="leader-quip" id="leaderQuip"></div>
   </div>
 
@@ -252,6 +254,7 @@
       <div class="leader-label">Side Bet Leader</div>
       <div class="leader-name" id="sbLeaderName">Loading...</div>
       <div class="leader-gain" id="sbLeaderGain"></div>
+      <div class="leader-lead" id="sbLeaderLead"></div>
       <div class="leader-quip" id="sbLeaderQuip"></div>
     </div>
 
@@ -394,6 +397,7 @@ function updateUI(prices){
   const gap=Math.abs(leader.pctChange-second.pctChange);
   document.getElementById('leaderName').textContent=leader.name;
   const ge=document.getElementById('leaderGain');ge.textContent=fmtP(leader.pctChange);ge.style.color=leader.pctChange>=0?'var(--green)':'var(--red)';
+  document.getElementById('leaderLead').textContent='Leading by +'+gap.toFixed(2)+'%';
   document.getElementById('leaderQuip').textContent=gap<1?leader.name+' leads '+rq(QUIPS_CLOSE):leader.name+' '+rq(QUIPS_WIN);
   document.getElementById('errorMsg').classList.remove('visible');
 }
@@ -459,6 +463,7 @@ function updateSideBet(prices) {
   document.getElementById('sbLeaderName').textContent = leader.name;
   const ge = document.getElementById('sbLeaderGain');
   ge.textContent = fmtP(leader.pctChange); ge.style.color = leader.pctChange >= 0 ? 'var(--green)' : 'var(--red)';
+  document.getElementById('sbLeaderLead').textContent = 'Leading by +' + gap.toFixed(2) + '%';
   document.getElementById('sbLeaderQuip').textContent = gap < 1 ? leader.name + ' leads ' + rq(QUIPS_CLOSE) : leader.name + ' ' + rq(QUIPS_WIN);
 }
 
